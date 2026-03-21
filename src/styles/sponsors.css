@@ -1,0 +1,14 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap');
+
+/* --- User Defined Variables --- */
+
+/* --- Base Styles --- */
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  margin: 0;
+  color: var(--text-dark);
+  background-color: var(--bg-light);
+}
+
+

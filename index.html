@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
+    <!--
+      Content Security Policy
+      - 'self'        → allows scripts/styles from your own origin
+      - 'unsafe-inline' → needed for Tailwind's inline styles and React's style props
+      - Remove 'unsafe-eval' once you confirm no dependency needs it in production
+    -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
+        default-src 'self';
+        script-src  'self' 'unsafe-inline';
+        style-src   'self' 'unsafe-inline' https://fonts.googleapis.com;
+        font-src    'self' https://fonts.gstatic.com;
+        img-src     'self' data: blob:;
+        connect-src 'self';
+      "
+    />
+    <title>Qhackathon</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

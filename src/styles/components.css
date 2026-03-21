@@ -1,0 +1,384 @@
+/* --- Navbar Container --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 0.75rem 0;
+    box-sizing: border-box;
+}
+
+.navbar .container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+/* --- Logo Styling --- */
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.nav-logo {
+  height: 40px; /* Adjust this up or down based on your SVG's natural proportions */
+  width: auto;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.logo:hover .nav-logo {
+  opacity: 0.8; /* Gives a nice subtle visual feedback when hovered */
+}
+
+/* --- Nav Links Layout --- */
+.nav-links {
+    display: flex;
+    align-items: center;
+    flex-grow: 1; /* Takes up remaining space */
+}
+
+/* Centered Page Links */
+.page-links {
+    display: flex;
+    gap: 2rem;
+    margin: 0 auto; /* This magically centers it within the flex container */
+}
+
+/* Right-aligned Action Links */
+.action-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-left: 1.5rem;
+    border-left: 2px solid var(--border); /* Visual separator */
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.nav-item:hover {
+    color: var(--primary);
+}
+
+/* Styling the external links slightly differently so they stand out */
+.external-link {
+    color: var(--primary-dark);
+}
+
+/* --- Register Button --- */
+.btn-nav {
+    background-color: var(--primary);
+    color: white;
+    padding: 10px 24px;
+    border-radius: 30px; /* Pill shape looks better in navbars */
+    text-decoration: none;
+    font-weight: 700;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-nav:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+/* --- Mobile Toggle --- */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--text-dark);
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- Responsive Menu (Tablets & Mobile) --- */
+@media (max-width: 992px) {
+    .menu-toggle { display: block; }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: -100%;
+        flex-direction: column;
+        background: #ffffff;
+        width: 100%;
+        text-align: center;
+        transition: 0.4s ease;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        padding: 2rem 0;
+        /* Disable flex-grow on mobile */
+        flex-grow: 0; 
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .page-links, .action-links {
+        flex-direction: column;
+        margin: 0;
+        gap: 1.5rem;
+        width: 100%;
+    }
+
+    .action-links {
+        /* Change vertical divider to horizontal divider on mobile */
+        border-left: none;
+        border-top: 1px solid var(--border);
+        padding-left: 0;
+        padding-top: 1.5rem;
+        margin-top: 1rem;
+        width: 80%; /* Keeps the line from touching the absolute edges */
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* --- Global Fix --- */
+.main-footer * {
+    box-sizing: border-box;
+}
+
+/* --- Footer Container --- */
+.main-footer {
+    background: linear-gradient(180deg, var(--text-dark) 0%, #000000 100%);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 80px 0 0 0;
+    margin-top: 80px;
+    position: relative;
+    font-family: inherit;
+}
+
+/* Subtle glowing line at the top of the footer */
+.footer-glow-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    opacity: 0.8;
+}
+
+/* --- Grid Layout --- */
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 60px 20px;
+}
+
+/* --- Brand Section --- */
+.footer-logo-link {
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+/* --- Brand Section --- */
+.footer-logo-link {
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+/* New styling for the SVG logo */
+.footer-logo-img {
+    max-width: 200px; /* Adjust this value depending on how wide your SVG is */
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease; /* Optional: smooth transition for hover */
+}
+
+/* Optional: Slight hover effect for the logo */
+.footer-logo-link:hover .footer-logo-img {
+    transform: scale(1.02);
+}
+
+.footer-brand p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    max-width: 400px;
+}
+
+.footer-brand p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    max-width: 400px;
+}
+
+/* --- Social Icons --- */
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    transform: translateY(-5px); /* Lift effect */
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(140, 46, 124, 0.4); /* Primary color glow */
+}
+
+/* --- Links Section --- */
+.footer-links h4 {
+    color: #ffffff;
+    margin: 0 0 25px 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+/* Small underline below headers */
+.footer-links h4::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 2px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Slide-in Arrow on Hover */
+.footer-links a::before {
+    content: "→";
+    margin-right: 8px;
+    color: var(--primary);
+    opacity: 0;
+    transform: translateX(-15px);
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+    transform: translateX(5px); /* Shifts the text right slightly */
+}
+
+.footer-links a:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* --- Footer Bottom (Copyright Area) --- */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 25px 20px;
+    background: rgba(0, 0, 0, 0.3); /* Slightly darker than main footer */
+}
+
+.bottom-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 0.9rem;
+}
+
+.heart {
+    color: var(--primary);
+    font-size: 1.1rem;
+}
+
+.footer-location {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        text-align: center;
+    }
+
+    .footer-brand p {
+        margin: 0 auto 30px auto;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .footer-links h4::after {
+        left: 50%;
+        transform: translateX(-50%); /* Centers the underline on mobile */
+    }
+
+    .footer-links a:hover {
+        transform: none; /* Disables slide effect on mobile */
+    }
+    
+    .footer-links a::before {
+        display: none; /* Hides arrows on mobile for a cleaner look */
+    }
+
+    .bottom-flex {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+

@@ -1,0 +1,20 @@
+@import "tailwindcss";
+:root {
+
+  --primary: #8c2e7c;
+  --primary-dark: #6f2362;
+  --secondary: #f4e6f1;
+
+  --text-dark: #1a1a1a;
+  --text-light: #ffffff;
+
+  --bg-light: #fafafa;
+  --border: #e5e5e5;
+
+  --radius: 10px;
+}
+/* Offsets anchor scrolling to account for the fixed navbar height */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Adjust this value to match your navbar's height */
+}
