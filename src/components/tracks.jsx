@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Brain, ShieldCheck, Link2, Leaf, Rocket } from "lucide-react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
-//track data and lines
 const tracks = [
   {
     Icon: Brain,
@@ -50,7 +49,8 @@ const tracks = [
     tag: "Any Theme",
   },
 ];
-  const TrackCard = ({ Icon, title, description, tag, quote, backKeyword, backTitle, index }) => {
+
+const TrackCard = ({ Icon, title, description, tag, quote, backKeyword, backTitle, index }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -80,20 +80,20 @@ const tracks = [
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
-      style={{ perspective: 1000 }}
+      style={{ perspective: 1000, willChange: "transform" }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onMouseEnter={() => setIsFlipped(true)}
-      className="h-full min-h-[280px] sm:min-h-[300px] cursor-default"
+      className="w-full h-full min-h-[280px] sm:min-h-[300px] cursor-default"
     >
       <motion.div
-        style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+        style={{ rotateX, rotateY, transformStyle: "preserve-3d", willChange: "transform" }}
         className="relative w-full h-full"
       >
         <motion.div
           animate={{ rotateY: isFlipped ? 0 : 180 }}
           transition={{ duration: 0.8, type: "spring", stiffness: 60, damping: 15 }}
-          style={{ transformStyle: "preserve-3d" }}
+          style={{ transformStyle: "preserve-3d", willChange: "transform" }}
           className="relative w-full h-full shadow-lg rounded-(--radius)"
         >
           {/*backside*/}
@@ -118,29 +118,28 @@ const tracks = [
             <motion.div 
               animate={{ y: [0, -5, 0] }} 
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: index * 0.2 }}
+              style={{ willChange: "transform", transform: "translateZ(0)" }}
               className="z-10 flex flex-col items-center"
             >
-              <Icon size={42} style={{ color: "var(--secondary)" }} className="mb-4 opacity-90 drop-shadow-[0_0_12px_rgba(244,230,241,0.4)]" />
-              <p className="font-bold text-lg sm:text-xl tracking-[0.2em] uppercase text-white drop-shadow-md">
+              <Icon size={42} style={{ color: "var(--secondary)" }} className="mb-4 opacity-90" />
+              <p className="font-bold text-lg sm:text-xl tracking-[0.2em] uppercase text-white shadow-sm">
                 {backTitle}
               </p>
             </motion.div>
           </div>
 
-          {/*front side*/}
+          {/*frontside*/}
           <div
             style={{ backfaceVisibility: "hidden" }}
             className="absolute inset-0 flex flex-col items-start text-left p-5 sm:p-7 
                        rounded-(--radius) border border-(--border) overflow-hidden bg-white
                        hover:border-(--primary) transition-colors duration-300"
           >
-            {/* Top gradient bar */}
             <div
               className="absolute inset-x-0 top-0 h-1.5"
               style={{ background: "linear-gradient(90deg, var(--primary), var(--secondary))" }}
             />
 
-            {/*icon row*/}
             <div className="flex items-center gap-4 mb-1">
               <div
                 className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-xl shrink-0"
@@ -153,17 +152,14 @@ const tracks = [
               </h3>
             </div>
 
-            {/*quote*/}
             <p className="text-sm font-semibold italic mb-3 mt-2" style={{ color: "var(--primary)" }}>
               "{quote}"
             </p>
 
-            {/*short description*/}
             <p className="text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6 flex-1" style={{ color: "#555" }}>
               {description}
             </p>
 
-            {/*tag*/}
             <span
               className="mt-auto text-[10px] sm:text-xs font-bold uppercase tracking-widest px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full"
               style={{ color: "var(--primary)", background: "var(--secondary)" }}
@@ -176,7 +172,6 @@ const tracks = [
     </motion.div>
   );
 };
-
 const Tracks = () => {
   return (
     <section
@@ -205,10 +200,15 @@ const Tracks = () => {
           />
         </motion.div>
 
-        {/*grids*/}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {/*grid */}
+        <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
           {tracks.map((track, i) => (
-            <TrackCard key={track.title} {...track} index={i} />
+            <div 
+              key={track.title} 
+              className="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-2rem)] max-w-md"
+            >
+              <TrackCard {...track} index={i} />
+            </div>
           ))}
         </div>
       </div>
