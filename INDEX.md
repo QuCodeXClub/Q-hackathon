@@ -1,30 +1,33 @@
-# Project Index
+# Project Index 🗺️
 
 This file provides a quick map of the Q Hackathon website codebase.
 
-## Root
+## Root 📁
 
 - `index.html`: Vite HTML template
 - `package.json`: scripts and dependencies
 - `vite.config.js`: Vite configuration
 - `eslint.config.js`: linting setup
+- `.editorconfig`: editor formatting consistency
 - `README.md`: project overview and setup guide
+- `CHANGELOG.md`: release/change tracking
+- `LICENSE`: legal usage terms
 
-## Source (`src/`)
+## Source (`src/`) 🧩
 
-### App Shell
+### App Shell 🏠
 
 - `src/main.jsx`: React render entry
 - `src/App.jsx`: route definitions (`/`, `/sponsors`)
 - `src/index.css`: global variables/base CSS
 - `src/App.css`: app-level styles
 
-### Pages
+### Pages 📄
 
 - `src/pages/Home.jsx`: landing page
 - `src/pages/Sponsors.jsx`: sponsors page
 
-### Components
+### Components 🧱
 
 - `src/components/navbar.jsx`: header + navigation
 - `src/components/Hero.jsx`: hero section with countdown
@@ -42,23 +45,24 @@ This file provides a quick map of the Q Hackathon website codebase.
 - `src/components/Partnerships.jsx`: partner logos/content
 - `src/components/SponsorCTA.jsx`: sponsor call-to-action
 
-### Styles
+### Styles 🎨
 
 - `src/styles/globals.css`: global typography/base
 - `src/styles/components.css`: shared component styling
 - `src/styles/sponsors.css`: sponsor-page-specific styles
 
-### Assets
+### Assets 🖼️
 
 - `src/assets/`: images, icons, and branding assets
 
-## Public (`public/`)
+## Public (`public/`) 🌐
 
 - Static files served as-is by Vite
 
-## GitHub Meta
+## GitHub Meta 🐙
 
 - `.github/PULL_REQUEST_TEMPLATE.md`: PR checklist/template
 - `.github/ISSUE_TEMPLATE/`: bug and feature templates
+- `.github/CODEOWNERS`: default review ownership rules
 - `.github/workflows/ci.yml`: CI checks
 

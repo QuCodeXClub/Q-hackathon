@@ -1,12 +1,12 @@
-## Summary
+## Summary 🧾
 
 Describe what this PR changes and why.
 
-## Linked Issue
+## Linked Issue 🔗
 
 Closes #
 
-## Type of Change
+## Type of Change 🛠️
 
 - [ ] Feature
 - [ ] Bug fix
@@ -14,17 +14,17 @@ Closes #
 - [ ] Documentation
 - [ ] Chore
 
-## Screenshots (if UI)
+## Screenshots (if UI) 🖼️
 
 Add before/after images or a short video.
 
-## Testing
+## Testing 🧪
 
 - [ ] `npm run build` passes locally
 - [ ] Manual verification completed
 - [ ] Edge cases reviewed
 
-## PR Rules Checklist
+## PR Rules Checklist ✅
 
 - [ ] PR is focused and small
 - [ ] No unrelated formatting changes

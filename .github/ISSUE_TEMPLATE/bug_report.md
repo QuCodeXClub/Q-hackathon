@@ -4,29 +4,29 @@ about: Report a reproducible problem
 labels: bug
 ---
 
-## Description
+## Description 🐞
 
 A clear and concise description of the bug.
 
-## Steps To Reproduce
+## Steps To Reproduce 🔁
 
 1.
 2.
 3.
 
-## Expected Behavior
+## Expected Behavior ✅
 
 What you expected to happen.
 
-## Actual Behavior
+## Actual Behavior ❌
 
 What happened instead.
 
-## Screenshots / Logs
+## Screenshots / Logs 📷
 
 Add screenshots, console logs, or stack traces if relevant.
 
-## Environment
+## Environment 💻
 
 - OS:
 - Browser:

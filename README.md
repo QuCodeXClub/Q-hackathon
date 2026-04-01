@@ -1,8 +1,8 @@
-# Q Hackathon Website
+# Q Hackathon Website 🚀
 
 Official website for the Q Hackathon event, built with React and Vite.
 
-## Overview
+## Overview 🌟
 
 This repository contains a multi-page hackathon site with:
 
@@ -10,7 +10,7 @@ This repository contains a multi-page hackathon site with:
 - Dedicated sponsors page with tiers and CTA
 - Responsive navigation and section-based layout
 
-## Tech Stack
+## Tech Stack 🧰
 
 - React
 - Vite
@@ -19,7 +19,7 @@ This repository contains a multi-page hackathon site with:
 - Lucide React
 - Tailwind CSS (via `@import "tailwindcss"`)
 
-## Project Index
+## Project Index 🗂️
 
 - `src/main.jsx`: app entry point
 - `src/App.jsx`: router configuration
@@ -31,7 +31,7 @@ This repository contains a multi-page hackathon site with:
 
 For a more detailed file map, see `INDEX.md`.
 
-## NPM Scripts
+## NPM Scripts ⚙️
 
 - `npm run dev`: start local dev server
 - `npm run build`: create production build
@@ -39,7 +39,7 @@ For a more detailed file map, see `INDEX.md`.
 - `npm run predeploy`: build before deployment
 - `npm run deploy`: deploy `dist/` via `gh-pages`
 
-## Getting Started
+## Getting Started 🏁
 
 ### 1) Install dependencies
 
@@ -59,11 +59,11 @@ npm run dev
 npm run build
 ```
 
-## Routing Notes
+## Routing Notes 🧭
 
 The app uses `HashRouter`, which is suitable for static hosting (including GitHub Pages) without server-side route rewrite configuration.
 
-## Deployment
+## Deployment 📦
 
 This repository includes `gh-pages` scripts.
 
@@ -73,7 +73,7 @@ Typical deployment flow:
 npm run deploy
 ```
 
-## Contribution Workflow
+## Contribution Workflow 🤝
 
 Please read:
 
@@ -81,9 +81,11 @@ Please read:
 - `.github/PULL_REQUEST_TEMPLATE.md`
 - `.github/ISSUE_TEMPLATE/bug_report.md`
 - `.github/ISSUE_TEMPLATE/feature_request.md`
+- `.github/CODEOWNERS`
 - `CODE_OF_CONDUCT.md`
+- `CHANGELOG.md`
 
-## Pull Request Rules (Short)
+## Pull Request Rules (Short) ✅
 
 - Keep PRs focused and small
 - Link issue/task in PR description
@@ -91,10 +93,10 @@ Please read:
 - Avoid mixing formatting-only changes with feature/fix work
 - Ensure build passes before requesting review
 
-## Security
+## Security 🔒
 
 Please review `SECURITY.md` for responsible disclosure.
 
-## License
+## License 📄
 
-No license file is currently defined in this repository. Add one if you plan open-source distribution.
+This repository includes an MIT license in `LICENSE`.
