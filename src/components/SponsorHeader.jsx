@@ -4,15 +4,12 @@ import * as THREE from "three";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { Sparkles, Float, Center } from "@react-three/drei";
 import { SVGLoader } from "three-stdlib";
-
-// --- The Custom 3D Logo Extruder ---
 const QuantumLogo3D = () => {
   const logoPath = import.meta.env.BASE_URL + 'qu-logo.svg';
   const svg = useLoader(SVGLoader, logoPath);
   const shapes = useMemo(() => svg.paths.flatMap(p => p.toShapes(true)), [svg]);
 
   return (
-    // Reduced float intensity to keep the logo anchored in the center
     <Float speed={2.5} rotationIntensity={0.2} floatIntensity={1}>
       <Center scale={0.015}> 
         <group rotation={[Math.PI, 0, 0]}> 
@@ -45,14 +42,11 @@ const QuantumLogo3D = () => {
   );
 };
 
-// --- Surrounding Network Nodes ---
 const AbstractNetwork = () => {
   const groupRef = useRef();
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
-    // Smooth oscillation instead of a full 360 spin
-    // Math.sin() makes it swing back and forth gracefully
     groupRef.current.rotation.y = Math.sin(t * 0.4) * 0.35; 
     groupRef.current.rotation.x = Math.cos(t * 0.3) * 0.15; 
   });
@@ -60,12 +54,12 @@ const AbstractNetwork = () => {
   return (
     <group ref={groupRef}>
       
-      {/* Central Logo */}
+      {/*main logo*/}
       <Suspense fallback={null}>
         <QuantumLogo3D />
       </Suspense>
       
-      {/* Right Wireframe - Pushed wide and darkened */}
+      {/*right side wireframe*/}
       <Float speed={1.5} rotationIntensity={1.5} floatIntensity={2}>
         <mesh position={[5.5, 1, -3]}>
           <octahedronGeometry args={[1.2, 0]} />
@@ -73,7 +67,7 @@ const AbstractNetwork = () => {
         </mesh>
       </Float>
       
-      {/* Left Wireframe - Pushed wide and darkened */}
+      {/*leftside wireframe*/}
       <Float speed={2} rotationIntensity={1.2} floatIntensity={1.5}>
         <mesh position={[-5.5, -1, -2]}>
           <icosahedronGeometry args={[1.5, 0]} />
