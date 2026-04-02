@@ -1,6 +1,5 @@
 import { useRef, useMemo, Suspense } from "react";
 import { motion } from "framer-motion";
-import * as THREE from "three";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { Sparkles, Float, Center } from "@react-three/drei";
 import { SVGLoader } from "three-stdlib";
