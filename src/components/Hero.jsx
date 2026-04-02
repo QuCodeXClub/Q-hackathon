@@ -26,11 +26,11 @@ const Hero = () => {
 
   const timeUnits = timeLeft
     ? [
-        { value: timeLeft.days, label: "Days" },
-        { value: timeLeft.hours, label: "Hrs" },
-        { value: timeLeft.mins, label: "Min" },
-        { value: timeLeft.secs, label: "Sec" },
-      ]
+      { value: timeLeft.days, label: "Days" },
+      { value: timeLeft.hours, label: "Hrs" },
+      { value: timeLeft.mins, label: "Min" },
+      { value: timeLeft.secs, label: "Sec" },
+    ]
     : [];
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -42,13 +42,13 @@ const Hero = () => {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
-    show: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { type: "spring", stiffness: 80, damping: 15 } 
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", stiffness: 80, damping: 15 }
     },
   };
-  
+
   //3d hover tilt
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -81,7 +81,7 @@ const Hero = () => {
         style={{ background: "var(--primary-dark)" }} />
 
       <div className="relative z-10 w-full max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-16">
-        
+
         {/* robot */}
         <motion.div
           className="w-full lg:flex-1 flex justify-center lg:order-2"
@@ -90,15 +90,15 @@ const Hero = () => {
           transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
-          style={{ perspective: 1000 }} 
+          style={{ perspective: 1000 }}
         >
           <motion.img
             src={robot}
             alt="Hackathon Robot Mascot"
             className="w-36 sm:w-56 lg:w-full lg:max-w-100"
-            style={{ 
-              rotateX, 
-              rotateY, 
+            style={{
+              rotateX,
+              rotateY,
               transformStyle: "preserve-3d",
               filter: "drop-shadow(0 25px 35px rgba(140,46,124,0.25))"
             }}
@@ -108,7 +108,7 @@ const Hero = () => {
         </motion.div>
 
         {/* leftside content */}
-        <motion.div 
+        <motion.div
           className="lg:order-1 lg:flex-1 flex flex-col items-center lg:items-start text-center lg:text-left w-full"
           variants={containerVariants}
           initial="hidden"
@@ -167,12 +167,12 @@ const Hero = () => {
                 background: "transparent",
                 fontFamily: "inherit"
               }}
-              whileHover={{ 
-                scale: 1.05, 
-                y: -2, 
-                borderColor: "var(--primary)", 
-                color: "var(--primary)", 
-                backgroundColor: "var(--secondary)" 
+              whileHover={{
+                scale: 1.05,
+                y: -2,
+                borderColor: "var(--primary)",
+                color: "var(--primary)",
+                backgroundColor: "var(--secondary)"
               }}
               whileTap={{ scale: 0.95 }}
             >
@@ -206,7 +206,7 @@ const Hero = () => {
             </motion.div>
           ) : (
             <motion.h3 variants={itemVariants} className="text-lg sm:text-2xl font-bold" style={{ color: "var(--primary)" }}>
-               The Hackathon has started!
+              The Hackathon has started!
             </motion.h3>
           )}
 
