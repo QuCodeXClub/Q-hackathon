@@ -79,13 +79,11 @@ const FAQ = () => {
   return (
     <section
       id="faq"
-      // FIX: Removed solid var(--bg-light) background
-      // ADDED: bg-transparent class
       className="py-20 sm:py-32 px-4 sm:px-6 relative bg-transparent overflow-hidden"
     >
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
         
-        {/* Left Side: Sticky Header */}
+        {/*left side*/}
         <div className="w-full lg:w-[40%] lg:sticky lg:top-32">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -104,7 +102,7 @@ const FAQ = () => {
               Everything you need to know about participating in Q-Hackathon 2026. Can't find the answer you're looking for?
             </p>
 
-            {/* Support Box: Remained solid for contrast */}
+            {/*supportbox*/}
             <div className="p-6 rounded-2xl border border-(--border) bg-white shadow-sm flex items-start gap-4">
               <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0" style={{ background: "var(--secondary)" }}>
                 <Mail size={24} style={{ color: "var(--primary)" }} />
@@ -124,7 +122,7 @@ const FAQ = () => {
           </motion.div>
         </div>
 
-        {/* Right Side: Accordion list */}
+        {/*right side*/}
         <div className="w-full lg:w-[60%] flex flex-col gap-4">
           {faqData.map((item, i) => (
             <FAQItem key={item.question} {...item} index={i} />

@@ -60,7 +60,6 @@ const PipelineCard = ({ title, description, Icon }) => {
     >
       <motion.div
         style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-        // Card remains solid white to anchor the content
         className="relative overflow-hidden rounded-(--radius) border border-(--border) bg-white p-6 sm:p-8 shadow-sm hover:border-(--primary) hover:shadow-lg transition-colors duration-300"
       >
         <div className="flex items-start gap-4" style={{ transform: "translateZ(30px)" }}>
@@ -94,7 +93,6 @@ const Timeline = () => {
     <section
       id="timeline-section"
       ref={containerRef}
-      // FIX: Changed bg-radial-gradient to bg-transparent
       className="relative py-24 px-4 sm:px-6 bg-transparent overflow-hidden"
     >
       <div className="relative z-10 max-w-5xl mx-auto">
@@ -115,16 +113,13 @@ const Timeline = () => {
             style={{ background: "linear-gradient(90deg, var(--primary), var(--secondary))" }}
           />
         </motion.div>
-
-        {/* Pipeline Container */}
         <div className="relative">
-          {/* Static track line */}
           <div 
             className="absolute top-0 bottom-0 left-[29px] md:left-[calc(30%-3px)] w-1.5 rounded-full"
             style={{ background: "var(--border)" }}
           />
           
-          {/* Animated progress line */}
+          {/*progressline*/}
           <motion.div 
             className="absolute top-0 bottom-0 left-[29px] md:left-[calc(30%-3px)] w-1.5 rounded-full origin-top drop-shadow-[0_0_8px_rgba(140,46,124,0.6)]"
             style={{ background: "var(--primary)", scaleY }}
@@ -140,14 +135,14 @@ const Timeline = () => {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="flex flex-col md:flex-row items-start"
               >
-                {/* Mobile Date Label */}
+                {/*mobile date*/}
                 <div className="md:hidden pl-16 mb-3">
                    <span className="text-sm font-black uppercase tracking-widest" style={{ color: "var(--primary)" }}>
                     {evt.date}
                   </span>
                 </div>
 
-                {/* Left Side: Desktop Date */}
+                {/*leftside*/}
                 <div className="hidden md:flex w-[30%] pr-10 pt-4 justify-end text-right">
                   <span className="text-lg lg:text-xl font-black uppercase tracking-widest text-(--primary)">
                     {evt.date.split(',')[0]} <br/> 
@@ -155,10 +150,9 @@ const Timeline = () => {
                   </span>
                 </div>
 
-                {/* Center Dot */}
+                {/*center*/}
                 <div className="absolute left-4 md:static md:flex shrink-0 w-8 h-8 rounded-full border-4 border-white shadow-md bg-(--primary) z-20 mt-1 md:mt-4 md:-ml-4" />
 
-                {/* Right Side: Card Content */}
                 <div className="pl-16 md:pl-10 w-full md:w-[70%]">
                   <PipelineCard title={evt.title} description={evt.description} Icon={evt.Icon} />
                 </div>

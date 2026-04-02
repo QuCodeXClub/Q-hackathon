@@ -123,8 +123,6 @@ const Prizes = () => {
   return (
     <section
       id="prizes"
-      // FIX: Removed radial gradient style
-      // ADDED: bg-transparent
       className="relative overflow-hidden py-20 sm:py-28 px-4 sm:px-6 text-center bg-transparent"
     >
       <div className="relative z-10 max-w-5xl mx-auto">

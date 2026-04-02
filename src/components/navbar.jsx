@@ -8,14 +8,12 @@ function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Shadow on scroll
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
@@ -28,13 +26,10 @@ function Navbar() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // Smooth scroll to a section — works with HashRouter
   const scrollToSection = (sectionId) => {
     closeMenu();
-    // If we're not on the home page, navigate there first then scroll
     if (location.pathname !== "/") {
       navigate("/");
-      // Wait for navigation + render, then scroll
       setTimeout(() => {
         document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
       }, 100);

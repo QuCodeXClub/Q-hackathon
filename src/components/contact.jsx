@@ -128,8 +128,6 @@ const Contact = () => {
   return (
     <section 
       id="contact" 
-      // FIX: Removed style={{ background: "var(--bg-light)" }}
-      // ADDED: bg-transparent
       className="py-24 px-4 sm:px-6 relative overflow-hidden bg-transparent"
     >
       <div className="max-w-6xl mx-auto">

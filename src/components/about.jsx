@@ -133,7 +133,6 @@ const About = () => {
           </p>
         </div>
 
-        {/* Stats — always 2×2 on mobile, 4-col on desktop */}
         <div
           ref={statsRef}
           className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5"

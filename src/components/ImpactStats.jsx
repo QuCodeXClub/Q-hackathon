@@ -8,11 +8,8 @@ const stats = [
   { Icon: Timer,         to: 36,  suffix: "",  label: "Hours of Hacking"     },
   { Icon: GraduationCap, to: 10,  suffix: "+", label: "Colleges Represented" },
 ];
-
-/* ── Animated Live Counter Logic ── */
 const AnimatedCounter = ({ to, suffix }) => {
   const nodeRef = useRef(null);
-  // Triggers the animation only once when it comes into the viewport
   const isInView = useInView(nodeRef, { once: true, margin: "-50px" });
 
   useEffect(() => {
@@ -33,7 +30,6 @@ const AnimatedCounter = ({ to, suffix }) => {
   return <span ref={nodeRef}>0{suffix}</span>;
 };
 
-/* ── Dark Mode Premium Stat Card ── */
 const StatCard = ({ Icon, to, suffix, label, index }) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
@@ -42,10 +38,8 @@ const StatCard = ({ Icon, to, suffix, label, index }) => (
     transition={{ duration: 0.6, delay: index * 0.1 }}
     className="relative group flex flex-col items-center text-center rounded-2xl p-8 overflow-hidden bg-[#111] border border-[#222] transition-colors duration-300 hover:border-(--primary)"
   >
-    {/* Subtle Hover Glow behind the card */}
     <div className="absolute inset-0 bg-(--primary) opacity-0 group-hover:opacity-5 transition-opacity duration-500 pointer-events-none" />
     
-    {/* Icon Bubble */}
     <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 bg-black border border-[#333] transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6 relative z-10 shadow-lg">
       <Icon size={24} style={{ color: "var(--primary)" }} />
     </div>
@@ -62,17 +56,14 @@ const StatCard = ({ Icon, to, suffix, label, index }) => (
   </motion.div>
 );
 
-/* ── Main Section ── */
 const ImpactStats = () => {
   return (
     <section className="py-20 px-4 sm:px-6 bg-[#0a0a0a] relative z-10">
       
-      {/* Subtle top separator line to blend with the header */}
       <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-[#333] to-transparent" />
 
       <div className="max-w-6xl mx-auto">
         
-        {/* Section Subtitle */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

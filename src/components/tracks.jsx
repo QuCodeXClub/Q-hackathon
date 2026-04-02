@@ -175,8 +175,6 @@ const Tracks = () => {
   return (
     <section
       id="tracks"
-      // REMOVED: background radial-gradient
-      // ADDED: bg-transparent
       className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 overflow-hidden bg-transparent"
     >
       <div className="max-w-6xl mx-auto">

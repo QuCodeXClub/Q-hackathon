@@ -32,8 +32,6 @@ const Hero = () => {
         { value: timeLeft.secs, label: "Sec" },
       ]
     : [];
-
-  // layout variants
   const containerVariants = {
     hidden: { opacity: 0 },
     show: {
@@ -50,8 +48,6 @@ const Hero = () => {
       transition: { type: "spring", stiffness: 80, damping: 15 } 
     },
   };
-
-  // 3d hover tilt
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const mouseXSpring = useSpring(x, { stiffness: 150, damping: 15 });
@@ -76,10 +72,8 @@ const Hero = () => {
 
   return (
     <section
-      // Changed to bg-transparent to let the GlobalCanvas bleed through!
       className="relative min-h-svh flex items-center px-4 sm:px-6 py-14 overflow-hidden bg-transparent"
     >
-      {/* background circles (Kept these since they are blurry and add nice atmosphere) */}
       <div className="pointer-events-none absolute -top-20 -left-20 w-65 h-65 sm:w-115 sm:h-115 rounded-full opacity-20 blur-3xl"
         style={{ background: "var(--primary)" }} />
       <div className="pointer-events-none absolute bottom-0 right-0 w-50 h-50 sm:w-95 sm:h-95 rounded-full opacity-10 blur-3xl"
