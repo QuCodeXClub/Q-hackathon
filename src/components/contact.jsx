@@ -39,7 +39,6 @@ const TiltWrapper = ({ children, delay = 0 }) => {
   );
 };
 
-/*dark purple infocard*/
 const InfoCard = () => (
   <div 
     className="flex flex-col h-full rounded-2xl p-8 sm:p-10 shadow-xl overflow-hidden relative group"
@@ -55,7 +54,6 @@ const InfoCard = () => (
     </h3>
 
     <div className="flex flex-col gap-6 mt-auto" style={{ transform: "translateZ(20px)" }}>
-      {/*email*/}
       <div className="group/link">
         <span className="flex items-center gap-2 text-xs font-black uppercase tracking-widest mb-1 text-gray-400">
           <Mail size={14} style={{ color: "var(--primary)" }} /> Email
@@ -65,7 +63,6 @@ const InfoCard = () => (
         </a>
       </div>
 
-      {/*insta*/}
       <div className="group/link">
         <span className="flex items-center gap-2 text-xs font-black uppercase tracking-widest mb-1 text-gray-400">
           <Instagram size={14} style={{ color: "var(--primary)" }} /> Instagram
@@ -75,7 +72,6 @@ const InfoCard = () => (
         </a>
       </div>
 
-      {/*address*/}
       <div>
         <span className="flex items-center gap-2 text-xs font-black uppercase tracking-widest mb-1 text-gray-400">
           <MapPin size={14} style={{ color: "var(--primary)" }} /> Address
@@ -88,7 +84,6 @@ const InfoCard = () => (
   </div>
 );
 
-/*lead cards*/
 const LeadCard = ({ name, role, desc, phone }) => (
   <div 
     className="flex flex-col h-full bg-white rounded-2xl border border-(--border) p-8 sm:p-10 shadow-sm transition-colors duration-300 hover:border-(--primary)"
@@ -128,9 +123,15 @@ const LeadCard = ({ name, role, desc, phone }) => (
     </div>
   </div>
 );
+
 const Contact = () => {
   return (
-    <section id="contact" className="py-24 px-4 sm:px-6 relative overflow-hidden" style={{ background: "var(--bg-light)" }}>
+    <section 
+      id="contact" 
+      // FIX: Removed style={{ background: "var(--bg-light)" }}
+      // ADDED: bg-transparent
+      className="py-24 px-4 sm:px-6 relative overflow-hidden bg-transparent"
+    >
       <div className="max-w-6xl mx-auto">
 
         {/*header*/}
@@ -147,7 +148,7 @@ const Contact = () => {
           <div className="h-1.5 w-20 rounded-full mx-auto" style={{ background: "linear-gradient(90deg, var(--primary), var(--secondary))" }} />
         </motion.div>
 
-        {/*girds of cards */}
+        {/*cards grid*/}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
           <TiltWrapper delay={0.1}>
             <InfoCard />
@@ -172,7 +173,7 @@ const Contact = () => {
           </TiltWrapper>
         </div>
 
-        {/*organization strip*/}
+        {/*organizer strip*/}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

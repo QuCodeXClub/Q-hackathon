@@ -96,7 +96,7 @@ const TrackCard = ({ Icon, title, description, tag, quote, backKeyword, backTitl
           style={{ transformStyle: "preserve-3d", willChange: "transform" }}
           className="relative w-full h-full shadow-lg rounded-(--radius)"
         >
-          {/*backside*/}
+          {/* backside */}
           <div
             style={{ 
               backfaceVisibility: "hidden", 
@@ -106,7 +106,6 @@ const TrackCard = ({ Icon, title, description, tag, quote, backKeyword, backTitl
             className="absolute inset-0 flex flex-col items-center justify-center p-6 
                        rounded-(--radius) border border-[#333] overflow-hidden group"
           >
-            {/*watermark*/}
             <span 
               className="absolute inset-0 flex items-center justify-center text-7xl sm:text-8xl font-black pointer-events-none select-none" 
               style={{ color: "var(--primary)", opacity: 0.15 }}
@@ -114,7 +113,6 @@ const TrackCard = ({ Icon, title, description, tag, quote, backKeyword, backTitl
               {backKeyword}
             </span>
             
-            {/*center content*/}
             <motion.div 
               animate={{ y: [0, -5, 0] }} 
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: index * 0.2 }}
@@ -128,7 +126,7 @@ const TrackCard = ({ Icon, title, description, tag, quote, backKeyword, backTitl
             </motion.div>
           </div>
 
-          {/*frontside*/}
+          {/* frontside */}
           <div
             style={{ backfaceVisibility: "hidden" }}
             className="absolute inset-0 flex flex-col items-start text-left p-5 sm:p-7 
@@ -172,12 +170,14 @@ const TrackCard = ({ Icon, title, description, tag, quote, backKeyword, backTitl
     </motion.div>
   );
 };
+
 const Tracks = () => {
   return (
     <section
       id="tracks"
-      className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 overflow-hidden"
-      style={{ background: "radial-gradient(circle at bottom left, var(--secondary), var(--bg-light) 60%)" }}
+      // REMOVED: background radial-gradient
+      // ADDED: bg-transparent
+      className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 overflow-hidden bg-transparent"
     >
       <div className="max-w-6xl mx-auto">
         {/* Header */}
@@ -200,7 +200,7 @@ const Tracks = () => {
           />
         </motion.div>
 
-        {/*grid */}
+        {/* grid */}
         <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
           {tracks.map((track, i) => (
             <div 

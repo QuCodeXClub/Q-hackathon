@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { ClipboardList, ClipboardX, PartyPopper, ScanSearch, Trophy } from "lucide-react";
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from "framer-motion";
+
 const events = [
   {
     date: "April 01, 2026",
@@ -59,6 +60,7 @@ const PipelineCard = ({ title, description, Icon }) => {
     >
       <motion.div
         style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+        // Card remains solid white to anchor the content
         className="relative overflow-hidden rounded-(--radius) border border-(--border) bg-white p-6 sm:p-8 shadow-sm hover:border-(--primary) hover:shadow-lg transition-colors duration-300"
       >
         <div className="flex items-start gap-4" style={{ transform: "translateZ(30px)" }}>
@@ -78,11 +80,10 @@ const PipelineCard = ({ title, description, Icon }) => {
     </motion.div>
   );
 };
-/* ── Main Section ── */
+
 const Timeline = () => {
   const containerRef = useRef(null);
 
-  //scroll progress tracker
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start center", "end center"],
@@ -93,12 +94,12 @@ const Timeline = () => {
     <section
       id="timeline-section"
       ref={containerRef}
-      className="relative py-24 px-4 sm:px-6"
-      style={{ background: "radial-gradient(circle at right center, var(--secondary), var(--bg-light) 70%)" }}
+      // FIX: Changed bg-radial-gradient to bg-transparent
+      className="relative py-24 px-4 sm:px-6 bg-transparent overflow-hidden"
     >
       <div className="relative z-10 max-w-5xl mx-auto">
         
-        {/*header*/}
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -115,17 +116,20 @@ const Timeline = () => {
           />
         </motion.div>
 
-        {/*pipline*/}
+        {/* Pipeline Container */}
         <div className="relative">
-            <div 
+          {/* Static track line */}
+          <div 
             className="absolute top-0 bottom-0 left-[29px] md:left-[calc(30%-3px)] w-1.5 rounded-full"
             style={{ background: "var(--border)" }}
           />
           
+          {/* Animated progress line */}
           <motion.div 
             className="absolute top-0 bottom-0 left-[29px] md:left-[calc(30%-3px)] w-1.5 rounded-full origin-top drop-shadow-[0_0_8px_rgba(140,46,124,0.6)]"
             style={{ background: "var(--primary)", scaleY }}
           />
+
           <div className="relative z-10 flex flex-col gap-12 sm:gap-16">
             {events.map((evt, index) => (
               <motion.div
@@ -136,13 +140,14 @@ const Timeline = () => {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="flex flex-col md:flex-row items-start"
               >
-                                <div className="md:hidden pl-16 mb-3">
+                {/* Mobile Date Label */}
+                <div className="md:hidden pl-16 mb-3">
                    <span className="text-sm font-black uppercase tracking-widest" style={{ color: "var(--primary)" }}>
                     {evt.date}
                   </span>
                 </div>
 
-                {/*leftside*/}
+                {/* Left Side: Desktop Date */}
                 <div className="hidden md:flex w-[30%] pr-10 pt-4 justify-end text-right">
                   <span className="text-lg lg:text-xl font-black uppercase tracking-widest text-(--primary)">
                     {evt.date.split(',')[0]} <br/> 
@@ -150,10 +155,10 @@ const Timeline = () => {
                   </span>
                 </div>
 
-                {/*centerdot*/}
+                {/* Center Dot */}
                 <div className="absolute left-4 md:static md:flex shrink-0 w-8 h-8 rounded-full border-4 border-white shadow-md bg-(--primary) z-20 mt-1 md:mt-4 md:-ml-4" />
 
-                {/*rightside card*/}
+                {/* Right Side: Card Content */}
                 <div className="pl-16 md:pl-10 w-full md:w-[70%]">
                   <PipelineCard title={evt.title} description={evt.description} Icon={evt.Icon} />
                 </div>

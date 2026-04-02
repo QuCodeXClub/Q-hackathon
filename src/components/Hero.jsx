@@ -5,7 +5,7 @@ import robot from "../assets/hero-robo.svg";
 
 const Hero = () => {
   const calculateTimeLeft = () => {
-    const countDate = new Date("April 24, 2026 09:00:00").getTime();
+    const countDate = new Date("May 1, 2026 09:00:00").getTime();
     const gap = countDate - Date.now();
     if (gap <= 0) return null;
     const s = 1000, m = s * 60, h = m * 60, d = h * 24;
@@ -141,7 +141,7 @@ const Hero = () => {
             style={{ color: "var(--text-dark)" }}
             variants={itemVariants}
           >
-            24–25 April 2026 &bull; Quantum University
+            01–02 April 2026 &bull; Quantum University
           </motion.p>
 
           {/* buttons */}

@@ -36,6 +36,7 @@ const prizes = [
     heightClass: "md:min-h-[320px]",
   },
 ];
+
 const PrizeCard = ({ tier, Icon, label, amount, perks, accentColor, bgGradient, desktopOrder, heightClass, index }) => {
   const isGold = tier === "gold";
   const x = useMotionValue(0);
@@ -44,6 +45,7 @@ const PrizeCard = ({ tier, Icon, label, amount, perks, accentColor, bgGradient, 
   const mouseYSpring = useSpring(y, { stiffness: 150, damping: 15 });
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
+  
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const mouseX = e.clientX - rect.left;
@@ -65,22 +67,18 @@ const PrizeCard = ({ tier, Icon, label, amount, perks, accentColor, bgGradient, 
     >
       <motion.div
         style={{ rotateX, rotateY, transformStyle: "preserve-3d", background: bgGradient }}
-        className={`relative w-full flex flex-col items-center text-center p-8 rounded-2xl border border-[#333] shadow-2xl ${heightClass} justify-center
-                   transition-colors duration-300 group`}
+        className={`relative w-full flex flex-col items-center text-center p-8 rounded-2xl border border-[#333] shadow-2xl ${heightClass} justify-center transition-colors duration-300 group`}
       >
-        {/*glow*/}
         <div 
           className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl pointer-events-none"
           style={{ background: `radial-gradient(circle at center, ${accentColor}33 0%, transparent 70%)` }}
         />
 
-        {/*top line accent*/}
         <div 
           className="absolute top-0 inset-x-8 h-1 rounded-b-md" 
           style={{ background: accentColor, boxShadow: `0 2px 10px ${accentColor}` }} 
         />
 
-        {/*icon floating*/}
         <motion.div
           animate={{ y: [0, -6, 0] }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: index * 0.2 }}
@@ -94,7 +92,6 @@ const PrizeCard = ({ tier, Icon, label, amount, perks, accentColor, bgGradient, 
           <Icon size={isGold ? 56 : 42} style={{ color: accentColor }} className="relative z-10 drop-shadow-lg" />
         </motion.div>
 
-        {/*lable*/}
         <p 
           style={{ transform: "translateZ(30px)" }}
           className="text-xs sm:text-sm font-black uppercase tracking-[0.2em] mb-2 text-gray-400"
@@ -102,7 +99,6 @@ const PrizeCard = ({ tier, Icon, label, amount, perks, accentColor, bgGradient, 
           {label}
         </p>
 
-        {/*prize amount*/}
         <h3 
           style={{ transform: "translateZ(50px)", color: accentColor }}
           className={`font-black tracking-tight mb-6 drop-shadow-md ${isGold ? 'text-5xl sm:text-6xl' : 'text-4xl sm:text-5xl'}`}
@@ -110,7 +106,6 @@ const PrizeCard = ({ tier, Icon, label, amount, perks, accentColor, bgGradient, 
           {amount}
         </h3>
 
-        {/*perks*/}
         <ul className="flex flex-col gap-3 w-full" style={{ transform: "translateZ(20px)" }}>
           {perks.map(text => (
             <li key={text} className="flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold text-gray-300">
@@ -123,16 +118,18 @@ const PrizeCard = ({ tier, Icon, label, amount, perks, accentColor, bgGradient, 
     </motion.div>
   );
 };
+
 const Prizes = () => {
   return (
     <section
       id="prizes"
-      className="relative overflow-hidden py-20 sm:py-28 px-4 sm:px-6 text-center"
-      style={{ background: "radial-gradient(circle at center, var(--secondary), var(--bg-light) 80%)" }}
+      // FIX: Removed radial gradient style
+      // ADDED: bg-transparent
+      className="relative overflow-hidden py-20 sm:py-28 px-4 sm:px-6 text-center bg-transparent"
     >
       <div className="relative z-10 max-w-5xl mx-auto">
 
-        {/*header*/}
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -153,7 +150,8 @@ const Prizes = () => {
             <span className="text-xl font-black text-(--primary)">₹15,000</span>
           </div>
         </motion.div>
-        {/*podium*/}
+
+        {/* Podium Layout */}
         <div className="flex flex-col md:flex-row items-center md:items-end justify-center gap-6 md:gap-4 lg:gap-8">
           {prizes.map((prize, i) => (
             <PrizeCard key={prize.tier} {...prize} index={i} />
@@ -163,4 +161,5 @@ const Prizes = () => {
     </section>
   );
 };
+
 export default Prizes;
