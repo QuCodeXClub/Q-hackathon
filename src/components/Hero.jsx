@@ -4,17 +4,17 @@ import logo from "../assets/qhackathon-name.svg";
 import robot from "../assets/hero-robo.svg";
 
 const Hero = () => {
-    const calculateTimeLeft = () => {
+  const calculateTimeLeft = () => {
     const countDate = new Date("April 24, 2026 09:00:00").getTime();
- const gap = countDate - Date.now();
-   if (gap <= 0) return null;
+    const gap = countDate - Date.now();
+    if (gap <= 0) return null;
     const s = 1000, m = s * 60, h = m * 60, d = h * 24;
     return {
       days: Math.floor(gap / d),
       hours: Math.floor((gap % d) / h),
- mins: Math.floor((gap % h) / m),
+      mins: Math.floor((gap % h) / m),
       secs: Math.floor((gap % m) / s),
- };
+    };
   };
 
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
@@ -32,7 +32,6 @@ const Hero = () => {
         { value: timeLeft.secs, label: "Sec" },
       ]
     : [];
-//layout varients
   const containerVariants = {
     hidden: { opacity: 0 },
     show: {
@@ -49,8 +48,6 @@ const Hero = () => {
       transition: { type: "spring", stiffness: 80, damping: 15 } 
     },
   };
-
-  //3d hover tilt
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const mouseXSpring = useSpring(x, { stiffness: 150, damping: 15 });
@@ -72,20 +69,19 @@ const Hero = () => {
     x.set(0);
     y.set(0);
   };
+
   return (
     <section
-      className="relative min-h-svh flex items-center px-4 sm:px-6 py-14 overflow-hidden"
-      style={{ background: "radial-gradient(circle at top left, var(--secondary), var(--bg-light) 60%)" }}
+      className="relative min-h-svh flex items-center px-4 sm:px-6 py-14 overflow-hidden bg-transparent"
     >
-      {/*background circle*/}
-      <div className="pointer-events-none absolute -top-20 -left-20 w-65 h-65 sm:w-115 sm:h-115 rounded-full opacity-20 blur-3xl"
+              <div className="pointer-events-none absolute -top-20 -left-20 w-65 h-65 sm:w-115 sm:h-115 rounded-full opacity-20 blur-3xl"
         style={{ background: "var(--primary)" }} />
       <div className="pointer-events-none absolute bottom-0 right-0 w-50 h-50 sm:w-95 sm:h-95 rounded-full opacity-10 blur-3xl"
         style={{ background: "var(--primary-dark)" }} />
 
       <div className="relative z-10 w-full max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-16">
         
-        {/*robot */}
+        {/* robot */}
         <motion.div
           className="w-full lg:flex-1 flex justify-center lg:order-2"
           initial={{ opacity: 0, scale: 0.8 }}
@@ -110,21 +106,21 @@ const Hero = () => {
           />
         </motion.div>
 
-        {/*leftside content*/}
+        {/* leftside content */}
         <motion.div 
           className="lg:order-1 lg:flex-1 flex flex-col items-center lg:items-start text-center lg:text-left w-full"
           variants={containerVariants}
           initial="hidden"
           animate="show"
         >
-          {/*logo qhackathon */}
+          {/* logo qhackathon */}
           <motion.img
             src={logo}
             alt="Q-Hackathon 2026 Logo"
             className="w-40 sm:w-56 lg:max-w-xs mb-4 drop-shadow-md"
-        variants={itemVariants}
+            variants={itemVariants}
           />
-          {/*subtitle */}
+          {/* subtitle */}
           <motion.p
             className="text-lg sm:text-2xl lg:text-3xl font-bold tracking-tight mb-1"
             style={{ color: "var(--primary)", letterSpacing: "-0.4px" }}
@@ -133,7 +129,7 @@ const Hero = () => {
             36-Hour Intercollegiate Hackathon
           </motion.p>
 
-          {/*date and location*/}
+          {/* date and location */}
           <motion.p
             className="text-xs sm:text-sm lg:text-base font-semibold mb-5 sm:mb-7 opacity-70"
             style={{ color: "var(--text-dark)" }}
@@ -142,7 +138,7 @@ const Hero = () => {
             24–25 April 2026 &bull; Quantum University
           </motion.p>
 
-          {/*buttons*/}
+          {/* buttons */}
           <motion.div className="flex flex-col sm:flex-row gap-2.5 sm:gap-4 mb-6 sm:mb-10 w-full sm:w-auto" variants={itemVariants}>
             <a href="https://bit.ly/4st6atF" className="w-full sm:w-auto">
               <motion.button
@@ -184,7 +180,7 @@ const Hero = () => {
             </motion.button>
           </motion.div>
 
-          {/*countdown*/}
+          {/* countdown */}
           {timeLeft ? (
             <motion.div className="flex flex-row gap-2 sm:gap-3 w-full sm:w-auto" variants={itemVariants}>
               {timeUnits.map(({ value, label }) => (
@@ -221,4 +217,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
