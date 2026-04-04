@@ -80,7 +80,7 @@ function Navbar() {
                 Sponsors
               </Link>
               <a
-                href="https://bit.ly/4st6atF"
+                href="https://unstop.com/p/qhackathon-2026-quantum-university-roorkee-1663126"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-nav"
@@ -203,7 +203,7 @@ function Navbar() {
 
         {/*register*/}
         <a
-          href="https://bit.ly/4st6atF"
+          href="https://unstop.com/p/qhackathon-2026-quantum-university-roorkee-1663126"
           target="_blank"
           rel="noopener noreferrer"
           style={{

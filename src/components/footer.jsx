@@ -10,7 +10,7 @@ const exploreLinks = [
 ];
 
 const engageLinks = [
-  { name: "Register Now", to: "https://bit.ly/4st6atF" },
+  { name: "Register Now", to: "https://unstop.com/p/qhackathon-2026-quantum-university-roorkee-1663126" },
   { name: "Sponsor Us", to: "/sponsors" }
 ];
 function Footer() {
