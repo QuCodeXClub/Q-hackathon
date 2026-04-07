@@ -58,8 +58,8 @@ const InfoCard = () => (
         <span className="flex items-center gap-2 text-xs font-black uppercase tracking-widest mb-1 text-gray-400">
           <Mail size={14} style={{ color: "var(--primary)" }} /> Email
         </span>
-        <a href="mailto:codexclub@email.com" className="text-sm sm:text-base font-medium text-white transition-colors hover:text-(--secondary)">
-          codexclub@email.com
+        <a href="mailto:codex.club@quantumeducation.in" className="text-sm sm:text-base font-medium text-white transition-colors hover:text-(--secondary)">
+          codex.club@quantumeducation.in
         </a>
       </div>
 
