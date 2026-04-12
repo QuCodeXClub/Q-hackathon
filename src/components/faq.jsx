@@ -111,11 +111,11 @@ const FAQ = () => {
                 <h4 className="font-bold text-(--text-dark) mb-1">Email Support</h4>
                 <p className="text-sm text-gray-500 mb-2">Our team will contact you back as soon as possible.</p>
                 <a 
-                  href="mailto:codexclub@email.com" 
+                  href="mailto:codex.club@quantumeducation.in" 
                   className="text-sm font-bold hover:underline transition-all"
                   style={{ color: "var(--primary)" }}
                 >
-                  codexclub@email.com &rarr;
+                  codex.club@quantumeducation.in &rarr;
                 </a>
               </div>
             </div>
