@@ -105,7 +105,6 @@ function Navbar() {
                     isActive ? "text-white" : "text-(--text-dark) hover:text-(--primary)"
                   }`}
                 >
-                  {/* The sliding active highlight pill */}
                   {isActive && (
                     <motion.div
                       layoutId="activeNavIndicator"
@@ -136,7 +135,7 @@ function Navbar() {
             </a>
           </div>
 
-          {/* Mobile Hamburger Button */}
+          {/*mobile menu */}
           <button
             className="md:hidden relative z-50 p-2"
             onClick={() => setMenuOpen(!menuOpen)}
