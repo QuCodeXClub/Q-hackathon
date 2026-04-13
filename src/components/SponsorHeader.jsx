@@ -80,26 +80,30 @@ const AbstractNetwork = () => {
         </mesh>
       </Float>
 
-      <Sparkles count={100} scale={18} size={2} speed={0.4} opacity={0.15} color="#ffffff" />
-      <Sparkles count={80} scale={15} size={2} speed={0.2} opacity={0.7} color="#e51a80" />
-      <Sparkles count={150} scale={22} size={4} speed={0.5} opacity={0.75} color="#FF00D9" />
-      <Sparkles count={120} scale={20} size={3} speed={0.3} opacity={0.5} color="#ffffff" />
+      <Sparkles count={36} scale={18} size={1.8} speed={0.35} opacity={0.15} color="#ffffff" />
+      <Sparkles count={28} scale={15} size={1.8} speed={0.2} opacity={0.55} color="#e51a80" />
+      <Sparkles count={40} scale={22} size={2.8} speed={0.45} opacity={0.45} color="#FF00D9" />
+      <Sparkles count={24} scale={20} size={2.4} speed={0.28} opacity={0.35} color="#ffffff" />
     </group>
   );
 };
 const SponsorHeader = () => {
   return (
-    <header className="relative h-[70vh] min-h-[550px] w-full bg-[#0a0a0a] overflow-hidden flex items-center justify-center">
+    <header id="sponsor-home" className="relative h-[70vh] min-h-137.5 w-full bg-[#0a0a0a] overflow-hidden flex items-center justify-center">
       
       <div className="absolute inset-0 z-0 opacity-90">
-        <Canvas camera={{ position: [0, 0, 7], fov: 45 }}>
+        <Canvas
+          camera={{ position: [0, 0, 7], fov: 45 }}
+          dpr={[1, 1.25]}
+          gl={{ antialias: false, powerPreference: "high-performance" }}
+        >
           <ambientLight intensity={0.5} />
           <directionalLight position={[10, 10, 5]} intensity={2} />
           <AbstractNetwork />
         </Canvas>
       </div>
 
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#0a0a0a]/60 via-[#0a0a0a]/40 to-[#0a0a0a]" />
+      <div className="absolute inset-0 z-0 bg-linear-to-b from-[#0a0a0a]/60 via-[#0a0a0a]/40 to-[#0a0a0a]" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center mt-12">
         <motion.div

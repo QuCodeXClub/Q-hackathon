@@ -13,6 +13,14 @@
 
   --radius: 10px;
 }
+
+html,
+body,
+#root {
+  min-height: 100%;
+  background-color: #050505;
+}
+
 /* Offsets anchor scrolling to account for the fixed navbar height */
 html {
     scroll-behavior: smooth;

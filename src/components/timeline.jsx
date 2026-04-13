@@ -93,6 +93,7 @@ const Timeline = () => {
     <section
       id="timeline-section"
       ref={containerRef}
+      style={{ position: "relative" }}
       className="relative py-24 px-4 sm:px-6 bg-transparent overflow-hidden"
     >
       <div className="relative z-10 max-w-5xl mx-auto">
@@ -115,13 +116,13 @@ const Timeline = () => {
         </motion.div>
         <div className="relative">
           <div 
-            className="absolute top-0 bottom-0 left-[29px] md:left-[calc(30%-3px)] w-1.5 rounded-full"
+            className="absolute top-0 bottom-0 left-7.25 md:left-[calc(30%-3px)] w-1.5 rounded-full"
             style={{ background: "var(--border)" }}
           />
           
           {/*progressline*/}
           <motion.div 
-            className="absolute top-0 bottom-0 left-[29px] md:left-[calc(30%-3px)] w-1.5 rounded-full origin-top drop-shadow-[0_0_8px_rgba(140,46,124,0.6)]"
+            className="absolute top-0 bottom-0 left-7.25 md:left-[calc(30%-3px)] w-1.5 rounded-full origin-top drop-shadow-[0_0_8px_rgba(140,46,124,0.6)]"
             style={{ background: "var(--primary)", scaleY }}
           />
 

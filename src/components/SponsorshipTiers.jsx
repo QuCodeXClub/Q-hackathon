@@ -93,9 +93,9 @@ const BackgroundNetwork = () => {
           <meshBasicMaterial color="#8c2e7c" wireframe transparent opacity={0.05} />
         </mesh>
       </Float>
-       <Sparkles count={200} scale={20} size={2} speed={0.2} opacity={0.3} color="#ffffff" />
-      <Sparkles count={100} scale={25} size={4} speed={0.5} opacity={0.2} color="#e51a80" />
-      <Sparkles count={50} scale={15} size={6} speed={0.1} opacity={0.4} color="#f5c400" />
+      <Sparkles count={70} scale={20} size={1.8} speed={0.2} opacity={0.22} color="#ffffff" />
+      <Sparkles count={34} scale={25} size={3} speed={0.4} opacity={0.18} color="#e51a80" />
+      <Sparkles count={18} scale={15} size={4} speed={0.1} opacity={0.28} color="#f5c400" />
     </group>
   );
 };
@@ -155,9 +155,9 @@ const TierCard = ({ tier, index }) => {
             {tier.price}
           </p>
 
-          <div className="w-full h-[1px] bg-[#333] mb-8" />
+          <div className="w-full h-px bg-[#333] mb-8" />
 
-          <ul className="flex flex-col gap-4 mb-10 flex-grow">
+          <ul className="flex flex-col gap-4 mb-10 grow">
             {tier.features.map((feature, i) => (
               <li key={i} className="flex items-start gap-3 text-sm text-gray-300 font-medium leading-snug">
                 <div className="mt-0.5 shrink-0">
@@ -201,11 +201,15 @@ const TierCard = ({ tier, index }) => {
 };
 const SponsorshipTiers = () => {
   return (
-    <section className="relative py-24 sm:py-32 px-4 sm:px-6 bg-[#0a0a0a] overflow-hidden">
+    <section id="sponsorship-tiers" className="relative py-24 sm:py-32 px-4 sm:px-6 bg-[#0a0a0a] overflow-hidden">
       
       {/*background canvas */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-60">
-        <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
+        <Canvas
+          camera={{ position: [0, 0, 5], fov: 45 }}
+          dpr={[1, 1.25]}
+          gl={{ antialias: false, powerPreference: "high-performance" }}
+        >
           <BackgroundNetwork />
         </Canvas>
       </div>

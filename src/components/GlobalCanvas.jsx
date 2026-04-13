@@ -19,7 +19,7 @@ const CinematicBokeh = ({ scrollOpacity }) => {
     return new THREE.CanvasTexture(canvas);
   }, []);
 
-  const orbs = useMemo(() => Array.from({ length: 35 }, () => ({
+  const orbs = useMemo(() => Array.from({ length: 18 }, () => ({
     x: (Math.random() - 0.5) * 25,
     y: (Math.random() - 0.5) * 25,
     z: (Math.random() - 0.5) * 15 - 5, 
@@ -116,7 +116,11 @@ const GlobalCanvas = () => {
 
   return (
     <div className="fixed inset-0 z-0 pointer-events-none">
-      <Canvas camera={{ position: [0, 0, 7], fov: 45 }}>
+      <Canvas
+        camera={{ position: [0, 0, 7], fov: 45 }}
+        dpr={[1, 1.25]}
+        gl={{ antialias: false, powerPreference: "high-performance" }}
+      >
         <ambientLight intensity={1} />
         <directionalLight position={[10, 10, 5]} intensity={2} />
         

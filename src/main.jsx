@@ -1,4 +1,3 @@
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { SpeedInsights } from "@vercel/speed-insights/react"
 import './index.css'
@@ -7,9 +6,11 @@ import "./styles/globals.css";
 import "./styles/components.css";   
 import "./styles/sponsors.css";   
 
+const isProduction = import.meta.env.PROD;
+
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <SpeedInsights/>
+  <>
+    {isProduction ? <SpeedInsights /> : null}
     <App />
-  </StrictMode>,
+  </>,
 )

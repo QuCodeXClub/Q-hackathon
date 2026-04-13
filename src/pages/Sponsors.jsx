@@ -10,13 +10,13 @@ function Sponsors() {
   return (
     <>
       <Navbar />
-      <main>
+      <main className="sponsors-page">
         <SponsorHeader />
         <ImpactStats />
         <SponsorshipTiers />
         <Partnerships />
-        <SponsorCTA />
         <Partners />
+        <SponsorCTA />
       </main>
       <Footer />
     </>

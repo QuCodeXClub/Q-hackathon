@@ -58,7 +58,7 @@ const StatCard = ({ Icon, to, suffix, label, index }) => (
 
 const ImpactStats = () => {
   return (
-    <section className="py-20 px-4 sm:px-6 bg-[#0a0a0a] relative z-10">
+    <section id="impact-stats" className="py-20 px-4 sm:px-6 bg-[#0a0a0a] relative z-10">
       
       <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-[#333] to-transparent" />
 

@@ -7,9 +7,9 @@ const SponsorCTA = () => {
     window.open("https://drive.google.com/file/d/1nZfTdO8etlti3NfCVrHc0nu5bReZBJME/view?usp=drivesdk", "_blank");
   };
   return (
-    <section className="py-24 px-4 sm:px-6 bg-[#0a0a0a] relative overflow-hidden">
+    <section id="sponsor-cta" className="py-24 px-4 sm:px-6 bg-[#0a0a0a] relative overflow-hidden">
       {/*background glow*/}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-(--primary) opacity-20 blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-75 bg-(--primary) opacity-20 blur-[120px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto relative z-10">
         <motion.div
@@ -20,7 +20,7 @@ const SponsorCTA = () => {
           className="rounded-3xl border border-[#333] bg-[#111]/80 backdrop-blur-xl text-center px-6 py-16 sm:px-16 shadow-2xl relative overflow-hidden"
         >
           {/*gradient accent*/}
-          <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-(--primary-dark) via-(--primary) to-(--primary-dark)" />
+          <div className="absolute top-0 inset-x-0 h-1.5 bg-linear-to-r from-(--primary-dark) via-(--primary) to-(--primary-dark)" />
 
           <h2 className="text-4xl sm:text-5xl font-black mb-5 text-white tracking-tight">
             Partner With Us
