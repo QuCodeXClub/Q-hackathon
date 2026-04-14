@@ -84,7 +84,7 @@ const TrackCard = ({ Icon, title, description, tag, quote, backKeyword, backTitl
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onMouseEnter={() => setIsFlipped(true)}
-      className="w-full h-full min-h-[280px] sm:min-h-[300px] cursor-default"
+      className="w-full h-full min-h-70 sm:min-h-75 cursor-default"
     >
       <motion.div
         style={{ rotateX, rotateY, transformStyle: "preserve-3d", willChange: "transform" }}
