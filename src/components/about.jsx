@@ -7,7 +7,7 @@ const stats = [
   { value: "36",   label: "Hours of Hacking" },
   { value: "60+",  label: "Innovative Teams"  },
   { value: "05",   label: "Tech Tracks"        },
-  { value: "₹15K", label: "Prize Pool"         },
+  { value: "₹1.5L", label: "Worth Prize Pool"         },
 ];
 
 const useInView = (threshold = 0.1) => {
