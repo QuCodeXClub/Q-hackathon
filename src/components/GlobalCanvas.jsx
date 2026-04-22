@@ -60,13 +60,14 @@ const CinematicBokeh = ({ scrollOpacity }) => {
   );
 };
 
-const TravelingLogo = ({ smoothProgress }) => {
+const TravelingLogo = ({ smoothProgress, shouldReduceMotion }) => {
   const { viewport } = useThree();
   const isMobile = viewport.width < 5; 
 
   const logoPath = import.meta.env.BASE_URL + 'qu-logo.svg';
   const svg = useLoader(SVGLoader, logoPath);
   const shapes = useMemo(() => svg.paths.flatMap(p => p.toShapes(true)), [svg]);
+  
   const maxOffset = viewport.width * 0.35; 
   const rightX = maxOffset;
   const leftX = -maxOffset;
@@ -79,9 +80,11 @@ const TravelingLogo = ({ smoothProgress }) => {
     if (groupRef.current) {
       if (isMobile) {
         groupRef.current.position.x = 0;
+        groupRef.current.position.y = 0.5;
         groupRef.current.rotation.y = 0;
       } else {
         groupRef.current.position.x = xPosition.get();
+        groupRef.current.position.y = 0.5;
         groupRef.current.rotation.y = yRotation.get();
       }
     }
@@ -89,7 +92,11 @@ const TravelingLogo = ({ smoothProgress }) => {
 
   return (
     <group ref={groupRef}>
-      <Float speed={2.5} rotationIntensity={0.2} floatIntensity={1.5}>
+      <Float 
+        speed={shouldReduceMotion ? 0 : 1.0}
+        rotationIntensity={shouldReduceMotion ? 0 : 0.1}
+        floatIntensity={shouldReduceMotion ? 0 : 1.0}
+      >
         <Center scale={isMobile ? 0.008 : 0.015}>
           <group rotation={[Math.PI, 0, 0]}>
             {shapes.map((shape, index) => (
@@ -128,26 +135,23 @@ const GlobalCanvas = () => {
 
   const bokehOpacity = useTransform(smoothProgress, [0, 0.15], [1, 0.3]);
 
-  if (shouldReduceMotion) {
-    return (
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(900px_520px_at_85%_8%,var(--bg-orb-1),transparent_70%),radial-gradient(800px_420px_at_10%_70%,var(--bg-orb-2),transparent_72%)]" />
-      </div>
-    );
-  }
-
   return (
     <div className="fixed inset-0 z-0 pointer-events-none">
+      {shouldReduceMotion && (
+        <div className="absolute inset-0 bg-[radial-gradient(900px_520px_at_85%_8%,var(--bg-orb-1),transparent_70%),radial-gradient(800px_420px_at_10%_70%,var(--bg-orb-2),transparent_72%)] z-[-1]" />
+      )}
+      
       <Canvas
         camera={{ position: [0, 0, 7], fov: 45 }}
-        dpr={[1, 1.25]}
+        dpr={shouldReduceMotion ? 1 : [1, 1.25]}
         gl={{ antialias: false, powerPreference: "high-performance" }}
       >
         <ambientLight intensity={1} />
         <directionalLight position={[10, 10, 5]} intensity={2} />
         
-        <TravelingLogo smoothProgress={smoothProgress} />
-        <CinematicBokeh scrollOpacity={bokehOpacity} />
+        <TravelingLogo smoothProgress={smoothProgress} shouldReduceMotion={shouldReduceMotion} />
+        
+        {!shouldReduceMotion && <CinematicBokeh scrollOpacity={bokehOpacity} />}
       </Canvas>
     </div>
   );
