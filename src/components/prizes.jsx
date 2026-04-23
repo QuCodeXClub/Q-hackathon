@@ -201,7 +201,7 @@ const Prizes = () => {
             Perks for Everyone
           </h3>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
             {generalPerks.map((perk, i) => (
               <motion.div 
                 key={perk.title}
