@@ -31,7 +31,7 @@ const events = [
   {
     date: "May 08, 09:00 AM",
     title: "Opening Ceremony",
-    description: "Keynote speeches, track reveals, and the 36-hour hack begins!",
+    description: "Keynote speeches and the 36-hour hack begins!",
     instructions: [
       "Welcome address and keynote sessions.",
       "Hackathon rules and judging criteria explained."
