@@ -40,41 +40,48 @@ const events = [
   },
   {
     date: "May 08, 09:00 PM",
-    title: "Round 1: Dev Phase",
-    description: "Intensive building period with mentor support.",
+    title: "Round 1: Dev Phase (3 Phases)",
+    description: "Intensive building period divided into three checkpoint phases.",
     deliverables: [
-      "Functional prototype or working model.",
-      "Clear problem definition and solution approach.",
-      "Basic UI/UX (if applicable)."
+      "Phase 1 (Day 1 - Afternoon): Problem Statement & Proposed Solution.",
+      "Phase 2 (Day 1 - Evening): Technical Architecture & Approach.",
+      "Phase 3 (Day 2 - Morning): Final PPT & Prototype Demonstration."
     ],
     instructions: [
       "Mentors will be available throughout the night for guidance.",
-      "Continuous progress is expected (avoid last-minute builds)."
+      "Ensure all code is committed to your team's repository."
     ],
     Icon: ScanSearch,
   },
   {
     date: "May 09, 10:00 AM",
     title: "Round 1 Evaluation",
-    description: "Progress check-in with the judging panel.",
+    description: "Offline desk-to-desk evaluation by the technical jury.",
     evaluation: [
-      "Innovation and idea clarity.",
-      "Technical implementation progress.",
-      "Feasibility and potential impact."
+      "Technical Execution & Code (40%)",
+      "Innovation & Idea Clarity (30%)",
+      "Feasibility & Potential Impact (30%)"
     ],
     instructions: [
-      "Shortlisting of top teams for the Final Presentation."
+      "Judging Format: Offline desk evaluation (7-10 mins per team).",
+      "Top teams will be shortlisted for the Final Presentation."
     ],
     Icon: ScanSearch,
   },
   {
     date: "May 09, 12:00 PM",
-    title: "Final Presentation",
-    description: "Pitch your solution to our panel of industry experts.",
+    title: "Round 2: Final Presentation",
+    description: "Stage pitch and live prototype demonstration in front of the final jury panel.",
+    evaluation: [
+      "Technical Execution & Demo (30%)",
+      "Innovation & Originality (25%)",
+      "Real-world Impact (25%)",
+      "Presentation & Q&A (20%)"
+    ],
     instructions: [
-      "5-8 minutes: Solution presentation.",
-      "3-5 minutes: Q&A with judges.",
-      "Focus: Technical depth and real-world applicability."
+      "Format: Main stage presentation (Offline).",
+      "Panel Size: 4-5 Industry Experts.",
+      "Time Limit: 5-8 minutes Pitch/Demo + 3-5 minutes Q&A."
     ],
     Icon: Trophy,
   },
@@ -108,7 +115,7 @@ const PipelineCard = ({ title, description, instructions, deliverables, evaluati
       <motion.div
         style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
         onClick={() => setIsOpen(!isOpen)}
-        className="roadmap-card relative overflow-hidden rounded-2xl border shadow-sm hover:shadow-lg p-6 sm:p-7 transition-all duration-500 text-left cursor-pointer bg-white"
+        className="roadmap-card relative overflow-hidden rounded-2xl border shadow-sm hover:shadow-lg p-6 sm:p-7 transition-all duration-500 text-left cursor-pointer bg-(--bg-light)"
       >
         <div className="flex items-start gap-4" style={{ transform: "translateZ(30px)" }}>
           <div className="roadmap-card-icon shrink-0 w-12 h-12 rounded-xl flex items-center justify-center shadow-inner" style={{ background: "var(--secondary)" }}>
@@ -118,7 +125,7 @@ const PipelineCard = ({ title, description, instructions, deliverables, evaluati
           <div className="flex-1 w-full">
             <div className="flex justify-between items-start gap-3">
               <div>
-                <h3 className="roadmap-card-title text-lg sm:text-xl font-black mb-1">{title}</h3>
+              <h3 className="roadmap-card-title text-lg sm:text-xl font-black mb-1 text-(--text-dark)">{title}</h3>
                 <p className="roadmap-card-desc text-sm font-medium text-(--text-muted)">{description}</p>
               </div>
               
@@ -126,14 +133,14 @@ const PipelineCard = ({ title, description, instructions, deliverables, evaluati
                 <motion.div 
                   animate={{ rotate: isOpen ? 180 : 0 }} 
                   transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                  className="shrink-0 mt-1 p-1 rounded-full bg-(--bg-light) text-(--primary)"
+                  className="shrink-0 mt-1 p-1.5 rounded-full transition-colors shadow-sm bg-black/5 dark:bg-white/10"
+                  style={{ color: "var(--primary)" }}
                 >
-                  <ChevronDown size={20} />
+                  <ChevronDown size={24} strokeWidth={2.5} />
                 </motion.div>
               )}
             </div>
             
-            {/* Smooth height accordion for details */}
             <AnimatePresence>
               {isOpen && hasDetails && (
                 <motion.div
@@ -143,11 +150,11 @@ const PipelineCard = ({ title, description, instructions, deliverables, evaluati
                   transition={{ opacity: { duration: 0.2 }, height: { type: "spring", stiffness: 100, damping: 15 } }}
                   className="overflow-hidden"
                 >
-                  <div className="roadmap-card-divider space-y-4 border-t pt-4 mt-4">
+                  <div className="roadmap-card-divider space-y-4 border-t border-(--border-soft) pt-4 mt-4">
                     {instructions && (
                         <div className="space-y-2">
                         <div className="flex items-center gap-2 text-(--primary) font-bold text-xs uppercase tracking-tighter">
-                          <BookOpen size={14} /> Guidelines
+                          <BookOpen size={14} /> Guidelines & Format
                         </div>
                         {instructions.map((item, i) => (
                           <div key={i} className="roadmap-card-detail flex gap-2 text-xs sm:text-sm text-(--text-dark)">
@@ -158,8 +165,8 @@ const PipelineCard = ({ title, description, instructions, deliverables, evaluati
                     )}
                     {deliverables && (
                         <div className="space-y-2">
-                        <div className="flex items-center gap-2 text-blue-600 font-bold text-xs uppercase tracking-tighter">
-                          <Target size={14} /> Deliverables
+                        <div className="flex items-center gap-2 text-blue-500 font-bold text-xs uppercase tracking-tighter">
+                          <Target size={14} /> Expected Deliverables
                         </div>
                         {deliverables.map((item, i) => (
                           <div key={i} className="roadmap-card-detail flex gap-2 text-xs sm:text-sm italic text-(--text-dark)">
@@ -169,12 +176,12 @@ const PipelineCard = ({ title, description, instructions, deliverables, evaluati
                         </div>
                     )}
                     {evaluation && (
-                        <div className="roadmap-card-eval p-3 border shadow-sm rounded-lg space-y-2 mt-2 bg-(--bg-card-dark)">
-                        <div className="roadmap-card-eval-title font-bold text-xs uppercase tracking-tighter flex items-center gap-2">
-                          <ScanSearch size={14} /> Evaluation Criteria
+                        <div className="roadmap-card-eval p-3 border border-(--border-soft) shadow-sm rounded-lg space-y-2 mt-2 bg-(--bg-card-dark)">
+                        <div className="roadmap-card-eval-title font-bold text-xs uppercase tracking-tighter flex items-center gap-2 text-(--text-dark)">
+                          <ScanSearch size={14} className="text-(--primary)" /> Evaluation Weightage
                         </div>
                         {evaluation.map((item, i) => (
-                          <div key={i} className="roadmap-card-eval-item text-xs sm:text-sm flex items-center gap-2 text-(--text-dark)">
+                          <div key={i} className="roadmap-card-eval-item text-xs sm:text-sm flex items-center gap-2 text-(--text-muted)">
                             <div className="w-1.5 h-1.5 rounded-full bg-(--primary) shrink-0" /> {item}
                           </div>
                         ))}
@@ -211,12 +218,12 @@ const Timeline = () => {
         >
           <h2 className="section-heading mb-4 text-4xl sm:text-5xl font-black tracking-tight">Event Roadmap</h2>
           <div className="h-1.5 w-24 rounded-full mx-auto" style={{ background: "linear-gradient(90deg, var(--primary), var(--secondary))" }} />
-          <p className="mt-4 text-(--text-muted) font-medium">Detailed schedule, deliverables, and expectations.</p>
+          <p className="mt-4 text-(--text-muted) font-medium">Detailed schedule, deliverables, and evaluation formats.</p>
         </motion.div>
 
         <div className="relative">
           <div className="absolute top-0 bottom-0 left-7 md:left-1/2 md:-translate-x-1/2 w-1 rounded-full bg-(--border-soft)" />
-                    <motion.div 
+          <motion.div 
             className="absolute top-0 bottom-0 left-7 md:left-1/2 md:-translate-x-1/2 w-1 rounded-full origin-top shadow-[0_0_15px_rgba(140,46,124,0.6)]"
             style={{ scaleY, background: "var(--primary)" }}
           />
@@ -233,7 +240,7 @@ const Timeline = () => {
                   viewport={{ once: true, margin: "-100px" }}
                   className="relative flex flex-col md:flex-row items-start w-full"
                 >
-                  <div className="absolute left-7 md:left-1/2 md:-translate-x-1/2 top-0 md:top-6 w-5 h-5 rounded-full border-4 z-20 shadow-lg -ml-2.5" style={{ borderColor: "var(--bg-light)", background: "var(--primary)" }} />
+                  <div className="absolute left-7 md:left-1/2 md:-translate-x-1/2 top-0 md:top-6 w-5 h-5 rounded-full border-4 z-20 shadow-lg -ml-2.5" style={{ borderColor: "var(--bg-page)", background: "var(--primary)" }} />
 
                   <div className="md:hidden w-full pl-16">
                     <span className="block mb-2 text-sm font-black uppercase tracking-widest" style={{ color: "var(--primary)" }}>{evt.date}</span>
