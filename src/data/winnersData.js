@@ -1,0 +1,32 @@
+export const winnersData = [
+  {
+    id: "winner",
+    rank: "Winner",
+    teamName: "Team CODESCYTHE",
+    institution: "Tula's Institute, Dehradun",
+    members: ["Ritish Dhar", "Prashant Krishan Bharti", "Aditya Rawat", "Tabeer Hussain"],
+    image: "https://res.cloudinary.com/dbrzibbne/image/upload/f_auto,q_auto:best/winner_b8zkqg.jpg",
+    accent: "#f5c400",
+    featured: true,
+  },
+  {
+    id: "first-runner-up",
+    rank: "1st Runner-Up",
+    teamName: "Team Game Of Nodes",
+    institution: "Quantum University",
+    members: ["Ashmit Kumar", "Indra Mohan Kumar", "Utkarsh Raj", "Aditya Singh"],
+    image: "https://res.cloudinary.com/dbrzibbne/image/upload/f_auto,q_auto:best/v1778690411/3rd-runner-up_dqqbx5.jpg",
+    accent: "#e5e7eb",
+    featured: false,
+  },
+  {
+    id: "second-runner-up",
+    rank: "2nd Runner-Up",
+    teamName: "Team CORTEX",
+    institution: "COER, Roorkee",
+    members: ["Dishit Mishra", "Devansh Sharma", "Radha Pandey", "Angad Kumar"],
+    image: "https://res.cloudinary.com/dbrzibbne/image/upload/f_auto,q_auto:best/v1778690413/2nd-runner-up_o9wgev.jpg",
+    accent: "#d97706",
+    featured: false,
+  },
+];
