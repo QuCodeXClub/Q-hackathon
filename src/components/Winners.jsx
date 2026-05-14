@@ -9,27 +9,25 @@ const rankIcons = {
 };
 
 const fireworks = [
-  { left: "8%", top: "10%", delay: 0, color: "#ff5ca8", scale: 1 },
-  { right: "12%", top: "12%", delay: 0.25, color: "#ffd44d", scale: 0.9 },
-  { left: "44%", top: "2%", delay: 0.4, color: "#ffffff", scale: 0.8 },
+  { left: "12%", top: "12%", delay: 0, color: "#ff5ca8", scale: 0.9 },
+  { right: "14%", top: "14%", delay: 0.3, color: "#ffd44d", scale: 0.85 },
 ];
 
 const FireworkBurst = ({ color, delay, scale }) => (
   <Motion.div
     className="absolute"
     style={{ transformOrigin: "center" }}
-    animate={{
-      opacity: [0, 1, 0],
-      scale: [0.4, scale, 1.15],
-      rotate: [0, 18, 32],
-    }}
-    transition={{
-      duration: 2.2,
-      delay,
-      repeat: Infinity,
-      repeatDelay: 1.6,
-      ease: "easeOut",
-    }}
+      animate={{
+        opacity: [0, 1, 0],
+        scale: [0.5, scale, 1.05],
+      }}
+      transition={{
+        duration: 2.6,
+        delay,
+        repeat: Infinity,
+        repeatDelay: 3,
+        ease: "easeOut",
+      }}
   >
     <div
       className="absolute left-1/2 top-1/2 rounded-full"
@@ -42,7 +40,7 @@ const FireworkBurst = ({ color, delay, scale }) => (
         boxShadow: `0 0 16px ${color}, 0 0 30px ${color}`,
       }}
     />
-    {Array.from({ length: 8 }).map((_, rayIndex) => (
+    {Array.from({ length: 5 }).map((_, rayIndex) => (
       <span
         key={rayIndex}
         className="absolute left-1/2 top-1/2 rounded-full"
@@ -58,13 +56,13 @@ const FireworkBurst = ({ color, delay, scale }) => (
         }}
       />
     ))}
-    {Array.from({ length: 6 }).map((_, sparkleIndex) => (
+    {Array.from({ length: 3 }).map((_, sparkleIndex) => (
       <span
         key={sparkleIndex}
         className="absolute rounded-full"
         style={{
-          width: 4 + (sparkleIndex % 2),
-          height: 4 + (sparkleIndex % 2),
+          width: 3 + (sparkleIndex % 2),
+          height: 3 + (sparkleIndex % 2),
           background: sparkleIndex % 2 === 0 ? color : "#ffffff",
           left: `${50 + Math.cos((sparkleIndex / 6) * Math.PI * 2) * 24}%`,
           top: `${50 + Math.sin((sparkleIndex / 6) * Math.PI * 2) * 24}%`,
@@ -177,8 +175,8 @@ const Winners = () => {
   return (
     <section
       id="winners"
-      className="relative py-20 sm:py-28 px-4 sm:px-6 overflow-hidden"
-      style={{ background: "var(--bg-page-elevated)" }}
+        className="relative py-20 sm:py-28 px-4 sm:px-6 overflow-hidden"
+        style={{ background: "transparent" }}
     >
       <div className="max-w-6xl mx-auto relative z-10">
         <Motion.div
